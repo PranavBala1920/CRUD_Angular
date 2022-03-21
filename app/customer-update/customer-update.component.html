@@ -1,0 +1,110 @@
+<!-- <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add User</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('modal')"></button>
+    </div> -->
+<div class="modal-body">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()" *ngIf="editForm">
+
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Update User</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="mb-3">
+            <label for="firstname" class="form-label">FirstName</label>
+            <input type="text" formControlName="firstName" class="form-control" id="firstname" name="firstname"
+                placeholder="Enter your first name">
+            <div *ngIf="editFormData.firstName.invalid && (editFormData.firstName.dirty || editFormData.firstName.touched)"
+                class="alert-danger">
+                First name is required!
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control" id="lastNameId" name="lastname"
+                placeholder="Enter your last name">
+            <div *ngIf="editFormData.lastName.invalid && (editFormData.lastName.dirty || editFormData.lastName.touched)"
+                class="alert-danger">
+                <span>last name is required!</span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label mt-2">Email ID</label>
+            <input type="email" formControlName="email" class="form-control" id="emailId" name="email"
+                placeholder="Enter your EmailId">
+            <div *ngIf="editFormData.email.invalid && (editFormData.email.dirty || editFormData.email.touched)"
+                class="alert-danger">
+                <span *ngIf="editFormData.email.errors?.required">Email is required!</span>
+                <span *ngIf="editFormData.email.errors?.email">Email must be a valid address!</span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="mobilenumber" class="form-label">Mobile Number</label>
+            <input type="number" formControlName="mobileNumber" class="form-control" id="mobileId" name="mobilenumber"
+                placeholder="Enter your mobile number">
+            <div *ngIf="editFormData.mobile.invalid && (editFormData.mobile.dirty || editFormData.mobile.touched)"
+                class="alert-danger">
+                <span>Mobile Number is required!</span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="addressone" class="form-label">AddressOne</label>
+            <input type="text" formControlName="addressOne" class="form-control" id="addressOneId" name="addressone"
+                placeholder="Enter your Address">
+            <div *ngIf="editFormData.addressOne.invalid && (editFormData.addressOne.dirty || editFormData.addressOne.touched)"
+                class="alert-danger">
+                <span>Address is required!</span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="addresstwo" class="form-label">AddressTwo</label>
+            <input type="text" formControlName="addressTwo" class="form-control" id="addressTwoId" name="addresstwo"
+                placeholder="Enter your Address">
+            <div *ngIf="editFormData.addressTwo.invalid && (editFormData.addressTwo.dirty || editFormData.addressTwo.touched)"
+                class="alert-danger">
+                <span>Address is required!</span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" formControlName="age" class="form-control" id="age" name="age"
+                placeholder="Enter your age">
+            <div *ngIf="editFormData.age.invalid && (editFormData.age.dirty || editFormData.age.touched)"
+                class="alert-danger">
+                <span>Age is required!</span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <input type="number" formControlName="gender" class="form-control" id="age" name="age"
+                placeholder="Enter your Gender">
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary mr-2" (click)="modal.close('Cancel')">Cancel</button>
+            <button class="btn btn-primary mr-2">Update</button>
+        </div>
+        <!-- <div class="form-outline">
+                    <select class="form-select form-control" aria-label="Default select example" id="${fields[7]}"
+                        name="${fields[7]}">
+                        <option value="0" selected="selected" disabled="disabled">Please select your gender...</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                    </select>
+                </div> -->
+        <!-- <div class="btn-group" role="group" ngbRadioGroup name="radioBasic">
+                    <label ngbButtonLabel class="btn-primary">
+                        <input ngbButton type="radio" class="btn-check" [(ngModel)]="customerModel.gender"
+                            name="gendermale" [value]="1">
+                        Male
+                    </label>
+                    <label ngbButtonLabel class="btn-primary">
+                        <input ngbButton type="radio" class="btn-check" [(ngModel)]="customerModel.gender"
+                            name="genderfemale" [value]="2">
+                        Female
+                    </label>
+                </div> -->
+    </form>
+</div>
+<!-- <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark" (click)="modal.close();">Save</button>
+    </div> -->
