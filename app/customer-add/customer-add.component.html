@@ -1,83 +1,81 @@
 <button class="btn btn-lg btn-outline-primary" (click)="popup(content)">Launch demo modal</button>
-
 <ng-template #content let-modal>
-    <div>
-        <form (ngSubmit)="onSubmit()">
-            <div class="modal-header">
-                <h4 class="modal-title" id="modal-basic-title">Add User</h4>
-                <button type="button" class="btn-close" aria-label="Close"
-                    (click)="modal.dismiss('Cross click')"></button>
+   <div>
+   <form (ngSubmit)="onSubmit()">
+      <div class="modal-header">
+         <h4 class="modal-title" id="modal-basic-title">Add User</h4>
+         <button type="button" class="btn-close" aria-label="Close"
+            (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+      <div class="mb-3">
+         <label for="firstname" class="form-label">FirstName</label>
+         <input type="text" class="form-control" id="firstnameId" [(ngModel)]="customerModel.firstName"
+         name="firstname" placeholder="Enter your first name" #firstnamemodel="ngModel">
+         <div *ngIf="firstnamemodel.invalid && (firstnamemodel.dirty ||firstnamemodel.touched)"
+            class="alert-danger">
+            <span>First name is required!</span>
+         </div>
+      </div>
+      <div class="mb-3">
+         <label for="lastname" class="form-label">Last Name</label>
+         <input type="text" class="form-control" id="lastNameId" [(ngModel)]="customerModel.lastName"
+         name="lastname" placeholder="Enter your last name" #lastnamemodel="ngModel">
+         <div *ngIf="lastnamemodel.invalid && (lastnamemodel.dirty ||lastnamemodel.touched)"
+            class="alert-danger">
+            <span>Lastname name is required!</span>
+         </div>
+      </div>
+      <div class="mb-3">
+         <label for="email" class="form-label mt-2">Email ID</label>
+         <input type="email" class="form-control" id="emailId" [(ngModel)]="customerModel.email" name="email"
+         placeholder="Enter your EmailId" #email="ngModel">
+         <div *ngIf="email.invalid && (email.dirty ||email.touched)" class="alert-danger">
+            <span>Email is required!</span>
+         </div>
+      </div>
+      <div class="mb-3">
+      <label for="mobilenumber" class="form-label">Mobile Number</label>
+      <input type="number" class="form-control" id="mobileId" [(ngModel)]="customerModel.mobile"
+      name="mobilenumber" placeholder="Enter your mobile number" #number="ngModel">
+      <div *ngIf="number.invalid && (number.dirty ||number.touched)" class="alert-danger">
+         <span>number is required!</span>
+      </div>
+      <div class="mb-3">
+         <label for="addressone" class="form-label">AddressOne</label>
+         <input type="text" class="form-control" id="addressOneId" [(ngModel)]="customerModel.addressOne"
+         name="addressone" placeholder="Enter your Address" #addOne="ngModel">
+         <div *ngIf="addOne.invalid && (addOne.dirty ||addOne.touched)" class="alert-danger">
+            <span>add is required!</span>
+         </div>
+         <div class="mb-3">
+            <label for="addresstwo" class="form-label">AddressTwo</label>
+            <input type="text" class="form-control" [(ngModel)]="customerModel.addressTwo"
+            id="addressTwoId" name="addresstwo" placeholder="Enter your Address">
+         </div>
+         <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age" [(ngModel)]="customerModel.age"
+            name="age" placeholder="Enter your age" #age="ngModel">
+            <div *ngIf="age.invalid && (age.dirty ||age.touched)" class="alert-danger">
+               <span>age is required!</span>
             </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="firstname" class="form-label">FirstName</label>
-                    <input type="text" class="form-control" id="firstnameId" [(ngModel)]="customerModel.firstName"
-                        name="firstname" placeholder="Enter your first name" #firstnamemodel="ngModel">
-                    <div *ngIf="firstnamemodel.invalid && (firstnamemodel.dirty ||firstnamemodel.touched)"
-                        class="alert-danger">
-                        <span>First name is required!</span>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="lastname" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastNameId" [(ngModel)]="customerModel.lastName"
-                        name="lastname" placeholder="Enter your last name" #lastnamemodel="ngModel">
-                    <div *ngIf="lastnamemodel.invalid && (lastnamemodel.dirty ||lastnamemodel.touched)"
-                        class="alert-danger">
-                        <span>Lastname name is required!</span>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label mt-2">Email ID</label>
-                    <input type="email" class="form-control" id="emailId" [(ngModel)]="customerModel.email" name="email"
-                        placeholder="Enter your EmailId" #email="ngModel">
-                    <div *ngIf="email.invalid && (email.dirty ||email.touched)" class="alert-danger">
-                        <span>Email is required!</span>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="mobilenumber" class="form-label">Mobile Number</label>
-                    <input type="number" class="form-control" id="mobileId" [(ngModel)]="customerModel.mobile"
-                        name="mobilenumber" placeholder="Enter your mobile number" #number="ngModel">
-                    <div *ngIf="number.invalid && (number.dirty ||number.touched)" class="alert-danger">
-                        <span>number is required!</span>
-                    </div>
-                    <div class="mb-3">
-                        <label for="addressone" class="form-label">AddressOne</label>
-                        <input type="text" class="form-control" id="addressOneId" [(ngModel)]="customerModel.addressOne"
-                            name="addressone" placeholder="Enter your Address" #addOne="ngModel">
-                        <div *ngIf="addOne.invalid && (addOne.dirty ||addOne.touched)" class="alert-danger">
-                            <span>add is required!</span>
-                        </div>
-                        <div class="mb-3">
-                            <label for="addresstwo" class="form-label">AddressTwo</label>
-                            <input type="text" class="form-control" [(ngModel)]="customerModel.addressTwo"
-                                id="addressTwoId" name="addresstwo" placeholder="Enter your Address">
-                        </div>
-                        <div class="mb-3">
-                            <label for="age" class="form-label">Age</label>
-                            <input type="number" class="form-control" id="age" [(ngModel)]="customerModel.age"
-                                name="age" placeholder="Enter your age" #age="ngModel">
-                            <div *ngIf="age.invalid && (age.dirty ||age.touched)" class="alert-danger">
-                                <span>age is required!</span>
-                            </div>
-                            <div class="mb-3">
-                                <div class="form-outline">
-                                    <select class="form-select form-control" aria-label="Default select example"
-                                        id="gender" name="Gender">
-                                        <option value="0" selected="selected" disabled="disabled">Please select your
-                                            gender...</option>
-                                        <option value="1">Male</option>
-                                        <option value="2">Female</option>
-                                    </select>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-outline-dark" (click)="modal.close();">Save</button>
-                        </div>
-        </form>
-    </div>
+            <div class="mb-3">
+               <div class="form-outline">
+                  <select class="form-select form-control" aria-label="Default select example"
+                     id="gender" name="Gender">
+                     <option value="0" selected="selected" disabled="disabled">Please select your
+                        gender...
+                     </option>
+                     <option value="1">Male</option>
+                     <option value="2">Female</option>
+                  </select>
+               </div>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button type="submit" class="btn btn-outline-dark" (click)="modal.close();">Save</button>
+         </div>
+   </form>
+   </div>
 </ng-template>
